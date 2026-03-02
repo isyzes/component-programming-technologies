@@ -1,0 +1,157 @@
+# ���������� ��� Git (�����������)
+.gitattributes
+.gitkeep
+
+# ��������� ����� � ����� ����������
+*~
+*.swp
+*.swo
+*#
+.#*
+.DS_Store
+Thumbs.db
+
+# ����� IDE � ����������
+*/.vs/
+*/.vscode/
+*/.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.vcxproj.filters
+*.vcxproj.user
+CMakeLists.txt.user
+
+# ����� ������ � ���������
+build/
+out/
+bin/
+obj/
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.ilk
+*.pdb
+*.dll
+*.so
+*.dylib
+*.lib
+*.a
+*.lo
+*.la
+*.al
+
+# ����� ����������� � �������
+*.gcno
+*.gcda
+
+# ����� CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+Makefile
+*.cmake
+
+# ����� ������������
+*.d
+.deps/
+
+# ������������������� �����
+autom4te.cache/
+config.h
+config.h.in
+config.log
+config.status
+configure
+libtool
+stamp-h1
+
+# ����� ������������
+*.gcov
+coverage/
+
+# ����� ��������
+*.deb
+*.rpm
+*.tar.gz
+*.zip
+
+# ����� �������������
+*.i
+*.ii
+
+# ����� ����������
+*.s
+*.S
+
+# ����� �������
+core
+core.*
+*.stackdump
+
+# ����� ������� Code::Blocks
+*.cbp
+*.layout
+
+# ����� ������� CodeLite
+*.project
+*.workspace
+
+# ����� ������� Eclipse
+.project
+.cproject
+.settings/
+
+# ����� ������� Qt Creator
+*.pro.user
+*.pro.user.*
+*.autosave
+
+# ����� ������� Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+
+# ����� ������� Visual Studio
+.idea/
+.vs/
+Debug/
+Release/
+x64/
+x86/
+Win32/
+*.sdf
+*.opensdf
+ipch/
+*.ipch
+*.db
+*.opendb
+
+# ����� ������������
+docs/html/
+docs/latex/
+doxygen/
+
+# ����� �����-������ ��� ����������� ����������������
+*.in
+*.out
+input.txt
+output.txt
+
+# ����� ����
+.cache/
+
+# ��������� ���������
+local.properties
+.env
+.secrets
+
+# ��������� �����
+*.orig
+*_backup
