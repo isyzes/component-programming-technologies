@@ -1,0 +1,41 @@
+﻿// AutoSvr.idl: источник языка IDL для AutoSvr
+//
+
+// Этот файл будет обработан средством MIDL для
+// создание библиотеки типов ($handlersafeidlname$.tlb) и кода маршалирования.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(11612bfb-e83b-425b-b70f-700022a01a12),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IMyMath : IDispatch
+{
+	[id(1), helpstring("Сложение")]		HRESULT		Add([in] LONG x,		[in] LONG y,				[out, retval] LONG* z);
+
+	[id(2), helpstring("Fun41")]		HRESULT		Fun41([in] int a,		[in] int b,					[out, retval] float* c);
+	[id(3), helpstring("Fun42")]		HRESULT		Fun42([in] int a,		[out, retval] DOUBLE* b);
+	[id(4), helpstring("Fun43")]		HRESULT		Fun43([in] DOUBLE a,	[out, retval] DOUBLE* b);
+};
+[
+	uuid(c85b3ba9-da8a-450f-9000-122541b181cb),
+	version(1.0),
+]
+library AutoSvrLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(dcd8fe42-4024-4303-949d-b91de13cf19b)
+	]
+	coclass MyMath
+	{
+		[default] interface IMyMath;
+	};
+};
+
+import "shobjidl.idl";
