@@ -33,7 +33,7 @@ STDMETHODIMP CMyMath::Fun41(int a, int b, float* c)
 	return S_OK;
 }
 
-STDMETHODIMP CMyMath::Fun42(int a, DOUBLE* b)
+STDMETHODIMP CMyMath::Fun42(int a, double* b)
 {
 	// a - радиус, вычисляем площадь круга: π * r²
 	double radius = static_cast<double>(a);
@@ -41,9 +41,39 @@ STDMETHODIMP CMyMath::Fun42(int a, DOUBLE* b)
 	return S_OK;
 }
 
-
-STDMETHODIMP CMyMath::Fun43(DOUBLE a, DOUBLE* b)
+STDMETHODIMP CMyMath::Fun43(double in, double* ou)
 {
-	*b = a * a;  // b = a²
+	*ou = in * in;  // b = a²
+	return S_OK;
+}
+
+STDMETHODIMP CMyMath::Sub(LONG x, LONG y, LONG* z)
+{
+	*z = x - y;
+	return S_OK;
+}
+
+
+STDMETHODIMP CMyMath::GetAuthor(BSTR name, BSTR* message)
+{
+	CComBSTR messageBSTR("Welcome, ");
+	messageBSTR.Append(name);
+	*message = messageBSTR;
+
+	return S_OK;
+}
+STDMETHODIMP CMyMath::get_Param1(LONG* pVal)
+{
+	*pVal = m_lParam1;
+	return S_OK;
+}
+
+STDMETHODIMP CMyMath::put_Param1(LONG newVal)
+{
+	if (newVal < 0) 
+	{
+		return Error("Значение свойства не может быть меньше 0");
+	}
+	m_lParam1 = newVal;
 	return S_OK;
 }

@@ -1,0 +1,8 @@
+﻿  Checking for required files
+EXEC : error : MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
+D:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(156,5): error MSB3073: выход из команды "if exist dlldata.c goto :END
+D:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(156,5): error MSB3073: echo Error: MIDL will not generate DLLDATA.C unless you have at least 1 interface in the main project.
+D:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(156,5): error MSB3073: Exit 1
+D:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(156,5): error MSB3073: :END
+D:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(156,5): error MSB3073: 
+D:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Microsoft\VC\v180\Microsoft.CppCommon.targets(156,5): error MSB3073: :VCEnd" с кодом 1.

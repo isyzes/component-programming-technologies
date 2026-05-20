@@ -22,7 +22,8 @@ class ATL_NO_VTABLE CMyMath :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CMyMath, &CLSID_MyMath>,
 	public ISupportErrorInfo,
-	public IDispatchImpl<IMyMath, &IID_IMyMath, &LIBID_AutoSvrLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
+	public IDispatchImpl<IMyMath, &IID_IMyMath, &LIBID_AutoSvrLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+	public IDispatchImpl<IVer, &IID_IVer, &LIBID_AutoSvrLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
 {
 public:
 	CMyMath()
@@ -34,7 +35,8 @@ DECLARE_REGISTRY_RESOURCEID(106)
 
 BEGIN_COM_MAP(CMyMath)
 	COM_INTERFACE_ENTRY(IMyMath)
-	COM_INTERFACE_ENTRY(IDispatch)
+	COM_INTERFACE_ENTRY(IVer)
+	COM_INTERFACE_ENTRY2(IDispatch, IMyMath)
 	COM_INTERFACE_ENTRY(ISupportErrorInfo)
 END_COM_MAP()
 
@@ -57,10 +59,23 @@ public:
 
 
 	STDMETHOD(Add)(LONG x, LONG y, LONG* z);
+	STDMETHOD(Sub)(LONG x, LONG y, LONG* z);
 
 	STDMETHOD(Fun41)(int a, int b, float* c);
-	STDMETHOD(Fun42)(int a, DOUBLE* b);
-	STDMETHOD(Fun43)(DOUBLE a, DOUBLE* b);
+	STDMETHOD(Fun42)(int a, double* b);
+	STDMETHOD(Fun43)(double in, double* ou);
+
+	
+
+	//IVer
+	STDMETHOD(GetAuthor)(BSTR name, BSTR* message);
+
+	//методы свойства Param1
+private:
+	LONG m_lParam1; //Хранилище значения свойства
+public:
+	STDMETHOD(get_Param1)(LONG* pVal);
+	STDMETHOD(put_Param1)(LONG newVal);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(MyMath), CMyMath)

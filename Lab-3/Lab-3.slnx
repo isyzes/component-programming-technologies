@@ -10,6 +10,8 @@
     <Build Solution="*|x64" Project="false" />
     <Build Solution="*|x86" Project="false" />
   </Project>
+  <Project Path="ClientCppDisp/ClientCppDisp.vcxproj" Id="89f9705f-d027-41dc-91ab-d69ab39d74a7" />
   <Project Path="ClientCSharp/ClientCSharp.csproj" Id="fd4ce110-26ec-4574-82a3-04f0b4106e0a" />
+  <Project Path="ClientCSharpLate/ClientCSharpLate.csproj" Id="75b15995-026d-44c0-8ad2-50e35f41495d" />
   <Project Path="ClientVB/ClientVB.vbproj" Id="2e5fbbea-672a-43ca-b036-47db83e5d98c" />
 </Solution>

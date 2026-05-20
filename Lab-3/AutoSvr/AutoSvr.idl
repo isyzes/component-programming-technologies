@@ -17,10 +17,28 @@ import "ocidl.idl";
 interface IMyMath : IDispatch
 {
 	[id(1), helpstring("Сложение")]		HRESULT		Add([in] LONG x,		[in] LONG y,				[out, retval] LONG* z);
+	[id(5), helpstring("Вычетание")]	HRESULT		Sub([in] LONG x,		[in] LONG y,				[out, retval] LONG* z);
 
 	[id(2), helpstring("Fun41")]		HRESULT		Fun41([in] int a,		[in] int b,					[out, retval] float* c);
-	[id(3), helpstring("Fun42")]		HRESULT		Fun42([in] int a,		[out, retval] DOUBLE* b);
-	[id(4), helpstring("Fun43")]		HRESULT		Fun43([in] DOUBLE a,	[out, retval] DOUBLE* b);
+	[id(3), helpstring("Fun42")]		HRESULT		Fun42([in] int a,		[out, retval] double* b);
+	[id(7), helpstring("Fun43")]		HRESULT		Fun43([in] double in,	[in] double* ou);
+
+	[propget, id(6), helpstring("Параметр1 по умолчанию")] HRESULT Param1([out, retval] LONG* pVal);
+	[propput, id(6), helpstring("Параметр1 по умолчанию")] HRESULT Param1([in] LONG newVal);
+	
+};
+
+
+[
+	object,
+	uuid(FD72FEAC-8A20-4B5A-A491-CC8B250705AA),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IVer : IDispatch
+{
+	[id(1), helpstring("Приветствие")] HRESULT GetAuthor([in] BSTR name, [out, retval] BSTR* message);
 };
 [
 	uuid(c85b3ba9-da8a-450f-9000-122541b181cb),
@@ -35,6 +53,7 @@ library AutoSvrLib
 	coclass MyMath
 	{
 		[default] interface IMyMath;
+		interface IVer;
 	};
 };
 
