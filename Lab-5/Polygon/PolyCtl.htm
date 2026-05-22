@@ -9,13 +9,29 @@
 <OBJECT ID="PolyCtl" CLASSID="CLSID:2205e542-da76-4e54-89d9-9564966cca4b"></OBJECT>
     <script>
         var pp;
-        function PolyCtl::ClickIn(x, y) {
+        function PolyCtl:: ClickIn(x, y) {
             alert("ClickIn Sds+1");
             pp = this.Sides;
-            if (pp == 0) {
-                alert()
+            if (pp == 9) {
+                alert(pp);
+                pp = 9;
+            } else {
+                pp = pp + 1;
             }
+            this.Sides = pp;
+        }
 
+        function PolyCtl:: ClickOut(x, y) {
+            alert("ClickIn Sds-1");
+            pp = this.Sides;
+
+            if (pp == 3) {
+                alert("К-во сторон не может быть < 3 ");
+                pp = 3;
+            } else {
+                pp = pp - 1;
+            }
+            this.Sides = pp;
         }
     </script>
 

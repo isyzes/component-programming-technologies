@@ -186,11 +186,7 @@ public:
 		SelectObject(hdc, hOldPen);
 		SelectObject(hdc, hOldBrush);
 		DeleteObject(hBrush);
-
-
 		//=====================================
-
-
 
 		SetTextAlign(di.hdcDraw, TA_CENTER|TA_BASELINE);
 		LPCTSTR pszText = _T("PolyCtl 40332");

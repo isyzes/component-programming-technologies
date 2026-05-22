@@ -1,0 +1,51 @@
+﻿<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+<TITLE>Тестовая страница ATL для объекта PolyCtl</TITLE>
+</HEAD>
+<BODY>
+
+<OBJECT ID="PolyCtl" CLASSID="CLSID:2205e542-da76-4e54-89d9-9564966cca4b"
+    WIDTH="600" HEIGHT="400"></OBJECT>
+<br/><br/>
+<button onclick="setRed()">Красный график</button>
+<button onclick="setBlue()">Синий график</button>
+<button onclick="setGreen()">Зелёный график</button>
+<button onclick="setDarkBg()">Тёмный фон</button>
+<button onclick="setLightBg()">Светлый фон</button>
+<button onclick="zoomIn()">Приблизить X</button>
+<button onclick="zoomOut()">Отдалить X</button>
+
+<script>
+    function setRed()   { PolyCtl.GraphColor = 0x0000FF; }
+    function setBlue()  { PolyCtl.GraphColor = 0xFF0000; }
+    function setGreen() { PolyCtl.GraphColor = 0x008000; }
+
+    function setDarkBg()  { PolyCtl.BackgroundColor = 0x3A3226; }
+    function setLightBg() { PolyCtl.BackgroundColor = 0xFFFFFF; }
+
+    function zoomIn() {
+        var mid = (PolyCtl.XMin + PolyCtl.XMax) / 2;
+        var half = (PolyCtl.XMax - PolyCtl.XMin) / 4;
+        PolyCtl.XMin = mid - half;
+        PolyCtl.XMax = mid + half;
+    }
+
+    function zoomOut() {
+        var mid = (PolyCtl.XMin + PolyCtl.XMax) / 2;
+        var half = (PolyCtl.XMax - PolyCtl.XMin);
+        PolyCtl.XMin = mid - half;
+        PolyCtl.XMax = mid + half;
+    }
+
+    function PolyCtl::LButton(x, y) {
+        window.status = "LButton: график показан (" + x + ", " + y + ")";
+    }
+
+    function PolyCtl::RButton(x, y) {
+        window.status = "RButton: график скрыт (" + x + ", " + y + ")";
+    }
+</script>
+
+</BODY>
+</HTML>
