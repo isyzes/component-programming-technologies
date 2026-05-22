@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Polygon/Polygon.vcxproj" />
+  <Project Path="PolygonPS/PolygonPS.vcxproj">
+    <BuildDependency Project="Polygon/Polygon.vcxproj" />
+    <Build Project="false" />
+  </Project>
+</Solution>

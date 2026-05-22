@@ -1,0 +1,60 @@
+﻿// Polygon.idl: источник языка IDL для Polygon
+//
+
+// Этот файл будет обработан средством MIDL для
+// создание библиотеки типов ($handlersafeidlname$.tlb) и кода маршалирования.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(7a091d01-6d0e-484b-a73c-fc4df15144be),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IPolyCtl : IDispatch
+{
+	[propput, bindable, requestedit, id(DISPID_BORDERCOLOR)]
+	HRESULT BorderColor([in]OLE_COLOR clr);
+	[propget, bindable, requestedit, id(DISPID_BORDERCOLOR)]
+	HRESULT BorderColor([out, retval]OLE_COLOR* pclr);
+	[propput, bindable, requestedit, id(DISPID_FILLCOLOR)]
+	HRESULT FillColor([in]OLE_COLOR clr);
+	[propget, bindable, requestedit, id(DISPID_FILLCOLOR)]
+	HRESULT FillColor([out, retval]OLE_COLOR* pclr);
+
+	[propget, id(1), helpstring("Ко-во сторон")] HRESULT Sides([out, retval] SHORT* pVal);
+	[propput, id(1), helpstring("Ко-во сторон")] HRESULT Sides([in] SHORT newVal);
+};
+
+[
+	uuid(81f97e0e-c4e2-4ce7-b42a-3fe8e6084bcf),
+	version(1.0),
+]
+library PolygonLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(46c3617e-b7bd-4f87-87c3-6d4cf57aaf1a)
+	]
+	dispinterface _IPolyCtlEvents
+	{
+		properties:
+		methods:
+			[id(1), helpstring("В многоугольнике")] void ClickIn([in] LONG x,[in] LONG y);
+			[id(2), helpstring("Вне многоугольника")] void ClickOut([in] LONG x, [in] LONG y);
+	};
+	[
+		uuid(2205e542-da76-4e54-89d9-9564966cca4b),
+		control
+	]
+	coclass PolyCtl
+	{
+		[default] interface IPolyCtl;
+		[default, source] dispinterface _IPolyCtlEvents;
+	};
+};
+
